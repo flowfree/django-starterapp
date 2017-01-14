@@ -11,17 +11,33 @@ services:
       - postgres_data:/var/lib/postgresql/data
     env_file: .env
 
+  redis:
+    image: redis
+
   django:
     build:
       context: .
       dockerfile: ./compose/django/dockerfile
     depends_on:
       - postgres
+      - redis
     volumes:
       - staticfiles:/var/www/static
       - staticfiles:/var/www/media
     env_file: .env
     command: /server.sh
+
+  celery:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - staticfiles:/var/www/media
+    env_file: .env
+    command: celery -A config worker --beat -l warning
 
   nginx:
     build: ./compose/nginx
