@@ -1,5 +1,13 @@
-Create database
----------------
+Django Starter App
+==================
+
+My personal starter app for Django projects.
+
+On Development Machine
+----------------------
+
+Create new PostgreSQL database and user:
+
     CREATE DATABASE starterapp;
     CREATE USER starterapp WITH PASSWORD 's3cr3t';
     ALTER ROLE starterapp SET client_encoding TO 'utf8';
@@ -7,3 +15,32 @@ Create database
     ALTER ROLE starterapp SET timezone TO 'UTC';
     ALTER USER starterapp CREATEDB;
     GRANT ALL PRIVILEGES ON DATABASE starterapp TO starterapp;
+
+Create new `.env` file:
+
+    cp .env.example .env
+
+Fill in the values for PostgreSQL and leave the others empty:
+
+    POSTGRES_USER=starterapp
+    POSTGRES_PASSWORD=s3cr3t
+
+Create new virtualenv and install dependencies:
+
+    pyvenv venv
+    . venv/bin/activate
+    pip install -r requirements.txt
+
+Run the development server:
+
+    ./manage.py migrate
+    ./manage.py runserver 3000
+
+On Production Server
+--------------------
+
+Create new `.env` file as above and fill in all of the values. Run docker-compose:
+
+    docker-compose build
+    docker-compose up -d
+    
