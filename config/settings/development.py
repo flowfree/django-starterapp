@@ -24,3 +24,10 @@ DATABASES = {
         'PASSWORD': env('POSTGRES_PASSWORD'),
     }
 }
+
+# EMAIL CONFIGURATION
+# Set MailHog as the local mail server
+# ------------------------------------------------------------------------------
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025

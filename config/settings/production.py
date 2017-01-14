@@ -25,6 +25,14 @@ DATABASES = {
     }
 }
 
+# EMAIL CONFIGURATION
+# ------------------------------------------------------------------------------
+EMAIL_BACKEND = "anymail.backends.sendgrid.SendGridBackend"
+ANYMAIL = {
+    "SENDGRID_USERNAME": env('SENDGRID_USERNAME'),
+    "SENDGRID_PASSWORD": env('SENDGRID_PASSWORD'),
+}
+
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------
 STATIC_ROOT = '/var/www/static'
