@@ -1,6 +1,8 @@
 FROM python:3.5
 MAINTAINER Nash <nashruddin.amin@gmail.com>
 
+ENV DJANGO_SETTINGS_MODULE config.settings.production
+
 ADD . /app
 ADD ./compose/django/server.sh /server.sh
 
