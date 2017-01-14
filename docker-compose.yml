@@ -1,0 +1,32 @@
+version: '2'
+
+volumes:
+  postgres_data: {}
+  staticfiles: {}
+
+services:
+  postgres:
+    image: postgres:9.6
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file: .env
+
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/dockerfile
+    depends_on:
+      - postgres
+    volumes:
+      - staticfiles:/var/www/static
+    env_file: .env
+    command: /server.sh
+
+  nginx:
+    build: ./compose/nginx
+    depends_on:
+      - django
+    volumes:
+      - staticfiles:/var/www/static
+    ports:
+      - '80:80'

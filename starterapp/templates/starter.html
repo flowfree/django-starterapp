@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Django Starter App</title>
+  <style>
+    body {
+      font-family: arial;
+      text-align: center;
+      color: #333;
+    }
+    .container {
+      margin-top: 200px;
+    }
+    .logo {
+      width: 350px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="{% static 'img/django-logo.png' %}" class="logo" alt="">
+    <h2>Starter App</h2>
+  </div>
+</body>
+</html>
