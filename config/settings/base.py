@@ -31,7 +31,6 @@ THIRD_PARTY_APPS = (
     'anymail',
 )
 LOCAL_APPS = (
-    'starterapp.sampletask',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
