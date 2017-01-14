@@ -107,6 +107,12 @@ STATICFILES_DIRS = (
     str(APPS_DIR.path('static')),
 )
 
+# MEDIA CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
+# ------------------------------------------------------------------------------
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(APPS_DIR('media'))
+
 # CELERY CONFIGURATION
 # ------------------------------------------------------------------------------
 BROKER_URL = 'redis://localhost:6379'

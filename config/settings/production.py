@@ -28,3 +28,7 @@ DATABASES = {
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------
 STATIC_ROOT = '/var/www/static'
+
+# MEDIA CONFIGURATION
+# ------------------------------------------------------------------------------
+MEDIA_ROOT = '/var/www/media'

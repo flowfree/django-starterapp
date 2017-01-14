@@ -19,6 +19,7 @@ services:
       - postgres
     volumes:
       - staticfiles:/var/www/static
+      - staticfiles:/var/www/media
     env_file: .env
     command: /server.sh
 
@@ -28,5 +29,6 @@ services:
       - django
     volumes:
       - staticfiles:/var/www/static
+      - staticfiles:/var/www/media
     ports:
       - '80:80'
