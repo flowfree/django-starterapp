@@ -51,8 +51,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'config.urls'
 
 # TEMPLATE CONFIGURATION
-# ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#templates
+# ------------------------------------------------------------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -100,8 +100,8 @@ USE_L10N = True
 USE_TZ = True
 
 # STATIC FILE CONFIGURATION
-# ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+# ------------------------------------------------------------------------------
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     str(APPS_DIR.path('static')),

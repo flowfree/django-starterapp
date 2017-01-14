@@ -7,13 +7,13 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 # SECRET CONFIGURATION
-# ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
+# ------------------------------------------------------------------------------
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # DATABASE CONFIGURATION
-# ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# ------------------------------------------------------------------------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

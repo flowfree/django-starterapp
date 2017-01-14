@@ -6,14 +6,14 @@ from .base import *
 DEBUG = True
 
 # SECRET CONFIGURATION
-# ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
+# ------------------------------------------------------------------------------
 SECRET_KEY = 'xtbGBa`XPK/DwG"6sY(Zb.[y:PbmwCG?'
 
 # DATABASE CONFIGURATION
-# ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# ------------------------------------------------------------------------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
