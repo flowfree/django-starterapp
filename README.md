@@ -1,7 +1,7 @@
 Django Starter App
 ==================
 
-My personal starter app for Django projects.
+A starter app for my Django projects, inspired by [Cookiecutter Django](https://cookiecutter-django.readthedocs.io/en/latest/).
 
 On Development Machine
 ----------------------
