@@ -4,7 +4,7 @@ MAINTAINER Nash <nashruddin.amin@gmail.com>
 ENV DJANGO_SETTINGS_MODULE config.settings.production
 
 ADD . /app
-ADD ./compose/django/server.sh /server.sh
+ADD ./docker/django/server.sh /server.sh
 
 RUN chmod +x /server.sh && \
     cd /app && \
