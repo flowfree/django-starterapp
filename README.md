@@ -9,12 +9,12 @@ On Development Machine
 Create new PostgreSQL database and user:
 
     CREATE DATABASE dbname;
-    CREATE USER dbname WITH PASSWORD 's3cr3t';
-    ALTER ROLE dbname SET client_encoding TO 'utf8';
-    ALTER ROLE dbname SET default_transaction_isolation TO 'read committed';
-    ALTER ROLE dbname SET timezone TO 'UTC';
-    ALTER USER dbname CREATEDB;
-    GRANT ALL PRIVILEGES ON DATABASE dbname TO dbname;
+    CREATE USER dbuser WITH PASSWORD 's3cr3t';
+    ALTER ROLE dbuser SET client_encoding TO 'utf8';
+    ALTER ROLE dbuser SET default_transaction_isolation TO 'read committed';
+    ALTER ROLE dbuser SET timezone TO 'UTC';
+    ALTER USER dbuser CREATEDB;
+    GRANT ALL PRIVILEGES ON DATABASE dbname TO dbuser;
 
 Create new `.env` file:
 
@@ -22,7 +22,8 @@ Create new `.env` file:
 
 Fill in the values for PostgreSQL and leave the others empty:
 
-    POSTGRES_USER=dbname
+    POSTGRES_DBNAME=dbname
+    POSTGRES_USER=dbuser
     POSTGRES_PASSWORD=s3cr3t
 
 Create new virtualenv and install dependencies:
