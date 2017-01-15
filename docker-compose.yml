@@ -17,7 +17,7 @@ services:
   django:
     build:
       context: .
-      dockerfile: ./compose/django/Dockerfile
+      dockerfile: ./docker/django/Dockerfile
     depends_on:
       - postgres
       - redis
@@ -30,7 +30,7 @@ services:
   celery:
     build:
       context: .
-      dockerfile: ./compose/django/Dockerfile
+      dockerfile: ./docker/django/Dockerfile
     depends_on:
       - postgres
       - redis
@@ -40,7 +40,7 @@ services:
     command: celery -A config worker --beat -l warning
 
   nginx:
-    build: ./compose/nginx
+    build: ./docker/nginx
     depends_on:
       - django
     volumes:
