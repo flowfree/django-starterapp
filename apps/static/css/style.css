@@ -1,24 +1,22 @@
 body {
   margin-top: 60px;
 }
-.signin-form,
-.signup-form {
+
+.navbar .profile-image {
+  margin: -10px 0px;
+  height: 30px;
+}
+
+.panel-form {
   margin-top: 50px;
 }
-.signin-form .bottom-text,
-.signup-form .bottom-text {
+.panel-form .bottom-text {
   margin-top: 20px;
 }
-.signin-form .has-error .control-label,
-.signup-form .has-error .control-label {
+.panel-form .has-error .control-label {
   color: #333;
 }
 
 span.asteriskField {
   display: none;
-}
-
-.navbar .profile-image {
-  margin: -10px 0px;
-  height: 30px;
 }
