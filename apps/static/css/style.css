@@ -20,7 +20,7 @@ body {
 .panel-form .bottom-text {
   margin-top: 20px;
 }
-.panel-form .has-error .control-label {
+form .has-error .control-label {
   color: #333;
 }
 
