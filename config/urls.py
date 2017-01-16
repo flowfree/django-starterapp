@@ -19,7 +19,7 @@ from django.views.generic import TemplateView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='starter.html')),
+    url(r'^$', TemplateView.as_view(template_name='welcome.html')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^admin/', admin.site.urls),
 ] 
