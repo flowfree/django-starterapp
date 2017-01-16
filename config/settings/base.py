@@ -20,6 +20,7 @@ env.read_env(str(ROOT_DIR('.env')))
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
 DJANGO_APPS = (
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -29,11 +30,15 @@ DJANGO_APPS = (
 )
 THIRD_PARTY_APPS = (
     'anymail',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 )
 LOCAL_APPS = (
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+SITE_ID = 1
 
 # MIDDLEWARE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -113,6 +118,20 @@ STATICFILES_DIRS = (
 # ------------------------------------------------------------------------------
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(APPS_DIR('media'))
+
+# ALLAUTH CONFIGURATION
+# https://docs.djangoproject.com/en/1.10/topics/auth/customizing/
+# http://django-allauth.readthedocs.io/en/latest/configuration.html
+# ------------------------------------------------------------------------------
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 # CELERY CONFIGURATION
 # ------------------------------------------------------------------------------

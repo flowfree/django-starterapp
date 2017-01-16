@@ -31,3 +31,7 @@ DATABASES = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+
+# ALLAUTH CONFIGURATION
+# ------------------------------------------------------------------------------
+ACCOUNT_LOGOUT_ON_GET = True
