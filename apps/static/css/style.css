@@ -1,0 +1,16 @@
+.signin-form,
+.signup-form {
+  margin-top: 100px;
+}
+.signin-form .bottom-text,
+.signup-form .bottom-text {
+  margin-top: 20px;
+}
+.signin-form .has-error .control-label,
+.signup-form .has-error .control-label {
+  color: #333;
+}
+
+span.asteriskField {
+  display: none;
+}

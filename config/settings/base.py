@@ -29,6 +29,7 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 )
 THIRD_PARTY_APPS = (
+    'crispy_forms',
     'anymail',
     'allauth',
     'allauth.account',
@@ -132,6 +133,10 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+# CRISPY-FORMS CONFIGURATION
+# ------------------------------------------------------------------------------
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # CELERY CONFIGURATION
 # ------------------------------------------------------------------------------
