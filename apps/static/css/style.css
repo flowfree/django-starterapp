@@ -1,6 +1,9 @@
+body {
+  margin-top: 60px;
+}
 .signin-form,
 .signup-form {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .signin-form .bottom-text,
 .signup-form .bottom-text {
@@ -13,4 +16,9 @@
 
 span.asteriskField {
   display: none;
+}
+
+.navbar .profile-image {
+  margin: -10px 0px;
+  height: 30px;
 }
