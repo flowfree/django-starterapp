@@ -9,11 +9,11 @@ language: python
 python: 3.5
 
 env:
-  - DOCKER_COMPOSE_VERSION: 1.4.2
-  - POSTGRES_DBNAME: starterapp
-  - POSTGRES_USER: starterapp
-  - POSTGRES_PASSWORD: s3cr3t
-  - DJANGO_SECRET_KEY: 0123456789abcdef
+  - DOCKER_COMPOSE_VERSION=1.4.2
+  - POSTGRES_DBNAME=starterapp
+  - POSTGRES_USER=starterapp
+  - POSTGRES_PASSWORD=s3cr3t
+  - DJANGO_SECRET_KEY=0123456789abcdef
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -26,9 +26,9 @@ install:
   - pip install -r requirements.txt  
 
 before_script:
-  - psql -c 'create database test_${POSTGRES_DBNAME};' -U postgres
-  - psql -c 'create user ${POSTGRES_USER} with password "${POSTGRES_PASSWORD}";' -U postgres
-  - psql -c 'grant all privileges on database test_${POSTGRES_DBNAME} to ${POSTGRES_USER};' -U postgres
+  - psql -c "create database test_${POSTGRES_DBNAME};" -U postgres
+  - psql -c "create user ${POSTGRES_USER} with password '${POSTGRES_PASSWORD}';" -U postgres
+  - psql -c "grant all privileges on database test_${POSTGRES_DBNAME} to ${POSTGRES_USER};" -U postgres
 
 script:
   - python manage.py test
