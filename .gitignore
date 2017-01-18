@@ -30,13 +30,6 @@ __pycache__
 *.sqlite3
 *.rdb
 
-# Images #
-##########
-*.jpg
-*.png
-*.gif
-*.jpeg
-
 # OS generated files #
 ######################
 .DS_Store
@@ -54,6 +47,7 @@ celerybeat-schedule*
 
 # App specific #
 ################
+profile_pictures/
 .idea/
 .vendors/
 .env
