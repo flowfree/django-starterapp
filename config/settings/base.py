@@ -65,7 +65,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            str(APPS_DIR.path('templates')),
+            str(ROOT_DIR.path('resources/templates')),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -115,14 +115,14 @@ USE_TZ = True
 # ------------------------------------------------------------------------------
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    str(APPS_DIR.path('static')),
+    str(ROOT_DIR.path('resources/static')),
 )
 
 # MEDIA CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
 # ------------------------------------------------------------------------------
 MEDIA_URL = '/media/'
-MEDIA_ROOT = str(APPS_DIR('media'))
+MEDIA_ROOT = str(ROOT_DIR.path('resources/media'))
 
 # ALLAUTH CONFIGURATION
 # https://docs.djangoproject.com/en/1.10/topics/auth/customizing/
