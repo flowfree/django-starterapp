@@ -32,3 +32,7 @@ script:
   - docker-compose build
   - docker-compose up -d
   - docker-compose down
+
+notifications:
+  email: false
+  
