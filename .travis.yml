@@ -9,7 +9,7 @@ language: python
 python: 3.5
 
 env:
-  - DOCKER_COMPOSE_VERSION=1.4.2 POSTGRES_DBNAME=starterapp POSTGRES_USER=starterapp POSTGRES_PASSWORD=s3cr3t DJANGO_SECRET_KEY=0123456789abcdef
+  - DOCKER_COMPOSE_VERSION=1.9.0 POSTGRES_DBNAME=starterapp POSTGRES_USER=starterapp POSTGRES_PASSWORD=s3cr3t DJANGO_SECRET_KEY=0123456789abcdef
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
