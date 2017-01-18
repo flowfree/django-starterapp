@@ -46,4 +46,10 @@ Create new `.env` file as above and fill in all of the values. Run docker-compos
 
     docker-compose build
     docker-compose up -d
+
+TODO
+----
+
+- Custom error pages for 4xx and 5xx
+- HTML email
     
