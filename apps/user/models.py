@@ -8,7 +8,26 @@ from django.dispatch import receiver
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, related_name='profile')
+    user = models.OneToOneField(
+        User, 
+        related_name='profile',
+    )
+    name = models.CharField(
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    picture = models.ImageField(
+        blank=True, 
+        null=True, 
+        upload_to='profile_pictures',
+    )
+    bio = models.TextField(
+        max_length=250, 
+        blank=True, 
+        null=True,
+    )
+    website = models.URLField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -19,6 +38,12 @@ class UserProfile(models.Model):
             urlencode(dict(s=30)),
         )
         return url
+
+    def picture_url(self):
+        if self.picture:
+            return self.picture.url
+        else:
+            return self.gravatar_url
 
 
 @receiver(post_save, sender=User)

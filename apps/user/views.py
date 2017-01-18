@@ -4,12 +4,28 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import ChangePasswordForm
+from .forms import UserProfileForm, ChangePasswordForm
 
 
 @login_required
 def profile(request):
-    return render(request, 'user/profile.html')
+    if request.method == 'POST':
+        form = UserProfileForm(
+            request.POST,
+            request.FILES,
+            user=request.user,
+        )
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'Successfully updated your profile.',
+                extra_tags='app',
+            )
+            return redirect(request.path)
+    else:
+        form = UserProfileForm(user=request.user)
+    return render(request, 'user/profile.html', {'form': form})
 
 
 @login_required

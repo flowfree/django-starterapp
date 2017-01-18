@@ -1,4 +1,26 @@
 from django import forms
+from .models import UserProfile
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('name', 'picture', 'bio', 'website')
+        widgets = {
+            'bio': forms.Textarea(attrs={'rows': 4}),
+        }
+
+    email = forms.EmailField()
+    user = None
+
+    def __init__(self, *args, **kwargs):
+        if 'user' not in kwargs:
+            raise Exception('The `user` parameter is required for UserProfileForm.')
+        self.user = kwargs.pop('user')
+        initial = kwargs.setdefault('initial', {})
+        initial['email'] = self.user.email
+        kwargs['instance'] = self.user.profile
+        super(UserProfileForm, self).__init__(*args, **kwargs)
 
 
 class ChangePasswordForm(forms.Form):
@@ -20,9 +42,9 @@ class ChangePasswordForm(forms.Form):
     user = None
 
     def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user')
-        if self.user is None:
+        if 'user' not in kwargs:
             raise Exception('The `user` parameter is required for ChangePasswordForm.')
+        self.user = kwargs.pop('user')
         super(ChangePasswordForm, self).__init__(*args, **kwargs)
 
     def clean_current_password(self):

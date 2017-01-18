@@ -10,6 +10,8 @@ django-environ==0.4.1
 gunicorn==19.6.0
 kombu==4.0.2
 oauthlib==2.0.1
+olefile==0.44
+Pillow==4.0.0
 psycopg2==2.6.2
 python3-openid==3.0.10
 pytz==2016.10

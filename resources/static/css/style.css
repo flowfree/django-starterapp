@@ -1,5 +1,6 @@
 body {
   margin-top: 60px;
+  margin-bottom: 50px;
 }
 
 .navbar .profile-image {
@@ -26,4 +27,8 @@ form .has-error .control-label {
 
 span.asteriskField {
   display: none;
+}
+
+form .btn {
+  min-width: 150px;
 }
