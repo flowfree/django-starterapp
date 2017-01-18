@@ -1,7 +1,9 @@
 Django Starter App
 ==================
 
-A starter app for my Django projects, inspired by [Cookiecutter Django](https://cookiecutter-django.readthedocs.io/en/latest/).
+[](https://travis-ci.org/flowfree/django-starterapp.svg?branch=master)
+
+A starter app for my Django projects.
 
 On Development Machine
 ----------------------
