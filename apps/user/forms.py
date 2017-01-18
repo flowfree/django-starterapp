@@ -7,7 +7,7 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ('name', 'picture', 'bio', 'website')
         widgets = {
-            'bio': forms.Textarea(attrs={'rows': 4}),
+            'bio': forms.Textarea(attrs={'rows': 2}),
         }
 
     email = forms.EmailField()
