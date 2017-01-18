@@ -34,6 +34,7 @@ THIRD_PARTY_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'django_cleanup',
 )
 LOCAL_APPS = (
     'apps.user',
