@@ -16,7 +16,7 @@
 <body>
 
 {% if request.user.is_authenticated %}
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -63,6 +63,17 @@
     </div>
   </div>  
 </div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+        <p>Copyright &copy; {% now 'Y' %} django-starterapp.</p>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
