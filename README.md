@@ -1,7 +1,7 @@
 Django Starter App
 ==================
 
-[](https://travis-ci.org/flowfree/django-starterapp.svg?branch=master)
+[![Build Status](https://travis-ci.org/flowfree/django-starterapp.svg?branch=master)](https://travis-ci.org/flowfree/django-starterapp)
 
 A starter app for my Django projects.
 
