@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.models import User
+
 from .models import UserProfile
 
 
@@ -21,6 +23,17 @@ class UserProfileForm(forms.ModelForm):
         initial['email'] = self.user.email
         kwargs['instance'] = self.user.profile
         super(UserProfileForm, self).__init__(*args, **kwargs)
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exclude(pk=self.user.id).count():
+            raise forms.ValidationError('This email is already used by other user.')
+        return email
+
+    def save(self):
+        super().save()
+        self.user.email = self.cleaned_data['email']
+        self.user.save()
 
 
 class ChangePasswordForm(forms.Form):
