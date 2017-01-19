@@ -43,11 +43,15 @@ class UserProfileFormTests(BaseTests):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['email'][0], 
-            'Enter a valid email address.')
-        self.assertEqual(form.errors['picture'][0],
+        self.assertEqual(
+            form.errors['email'][0], 
+            'Enter a valid email address.',
+        )
+        self.assertEqual(
+            form.errors['picture'][0],
             'Upload a valid image. '
-            'The file you uploaded was either not an image or a corrupted image.')
+            'The file you uploaded was either not an image or a corrupted image.',
+        )
 
     def test_with_valid_data(self):
         f = self.sample_image
@@ -91,12 +95,18 @@ class ChangePasswordFormTests(BaseTests):
 
         self.assertFalse(form.is_valid())
         self.assertEqual(len(form.errors), 3)
-        self.assertEqual(form.errors['current_password'], 
-            ['Please enter the correct password'])
-        self.assertEqual(form.errors['new_password'],
-            ['Ensure this value has at least 5 characters (it has 3).'])
-        self.assertEqual(form.errors['confirm_new_password'],
-            ['This value should match with the new password'])
+        self.assertEqual(
+            form.errors['current_password'][0], 
+            'Please enter the correct password',
+        )
+        self.assertEqual(
+            form.errors['new_password'][0],
+            'Ensure this value has at least 5 characters (it has 3).',
+        )
+        self.assertEqual(
+            form.errors['confirm_new_password'][0],
+            'This value should match with the new password',
+        )
 
     def test_with_valid_data(self):
         data = dict(
