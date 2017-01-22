@@ -5,6 +5,31 @@ from django.contrib.auth.models import User
 from allauth.account.models import EmailAddress
 
 
+# Django testing assertions:
+# assertEqual
+# assertRaises
+# assertRedirects
+# assertTrue
+# assertRaisesMessage
+# assertFieldOutput
+# assertFormError
+# assertFormsetError
+# assertContains
+# assertNotContains
+# assertHTMLEqual
+# assertHTMLNotEqual
+# assertTemplateUsed
+# assertTemplateNotUsed
+# assertRedirects
+# assertXMLEqual
+# assertXMLNotEqual
+# assertInHTML
+# assertJSONEqual
+# assertJSONNotEqual
+# assertQuerysetEqual
+# assertNumQueries
+
+
 FIXTURES_DIR = join(dirname(abspath(__file__)), 'fixtures')
 ASSETS_DIR = join(dirname(abspath(__file__)), 'assets')
 
