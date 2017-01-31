@@ -77,6 +77,24 @@
 </footer>
 {% endif %}
 
+<div id="confirmModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title">Title</h3>
+      </div>
+      <div class="modal-body">
+        <p>Enter some text here...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary btn-ok">Yes, I'm sure</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /.modal -->
+
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/app.js' %}"></script>
