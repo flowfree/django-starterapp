@@ -157,7 +157,7 @@ LOGIN_REDIRECT_URL = '/user/profile/'
 
 # CRISPY-FORMS CONFIGURATION
 # ------------------------------------------------------------------------------
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # CELERY CONFIGURATION
 # ------------------------------------------------------------------------------
