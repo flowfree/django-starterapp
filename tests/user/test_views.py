@@ -4,6 +4,40 @@ from django.contrib.auth import authenticate
 from ..base import BaseTests
 
 
+class TokenAuthenticationTests(BaseTests):
+    def test_all_users_have_auth_token(self):
+        self.assertIsNotNone(self.bob.auth_token.key)
+        self.assertIsNotNone(self.alice.auth_token.key)
+
+    def test_valid_login(self):
+        response = self.client.post('/api-token-auth/', {
+            'username': 'bob',
+            'password': 's3cr3t',
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertJSONEqual(response.content, {'token': self.bob.auth_token.key})
+
+        response = self.client.post('/api-token-auth/', {
+            'username': 'alice',
+            'password': 's3cr3t',
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertJSONEqual(response.content, {'token': self.alice.auth_token.key})
+
+    def test_invalid_login(self):
+        response = self.client.post('/api-token-auth/', {
+            'username': 'bob',
+            'password': 'xxx',
+        })
+
+        self.assertEqual(response.status_code, 400)
+        self.assertJSONEqual(response.content, {
+            'non_field_errors': ['Unable to log in with provided credentials.']
+        })
+
+
 class UpdateProfileTests(BaseTests):
     def setUp(self):
         super().setUp()

@@ -35,6 +35,8 @@ THIRD_PARTY_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'django_cleanup',
+    'rest_framework',
+    'rest_framework.authtoken',
 )
 LOCAL_APPS = (
     'apps.user',
@@ -102,6 +104,16 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Django REST Framework
+# http://www.django-rest-framework.org/
+# ------------------------------------------------------------------------------
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),   
+}
 
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
