@@ -1,4 +1,4 @@
-FROM python:3.5
+FROM python:3.6
 MAINTAINER Nash <nashruddin.amin@gmail.com>
 
 ENV DJANGO_SETTINGS_MODULE config.settings.production
