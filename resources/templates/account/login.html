@@ -10,12 +10,7 @@
       <br><br><br>
       <h2>Please Login</h2>
       <hr>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+      
       {% if form.non_field_errors %}
         <div class="alert alert-danger">{{ form.non_field_errors.0 }}</div>
       {% endif %}
@@ -39,44 +34,16 @@
         <div class="form-group">
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" name="remember_me" value="1" class="form-check-input"> Remember me
+              <input type="checkbox" name="remember_me" value="1" class="form-check-input"> Remember me on this computer
             </label>
           </div>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success"><i class="fa fa-signin"></i> Login</button>
-          <a href="{% url 'account_reset_password' %}" class="btn btn-link">Forgot your password?</a>
-        </div>
+        <p><button type="submit" class="btn btn-block btn-primary"><i class="fa fa-signin"></i> Login</button></p>
+        <p>
+          <a href="{% url 'account_reset_password' %}">Forgot your password?</a><br>
+          Don't have an account yet? Please <a href="{% url 'account_signup' %}">sign up</a>.
+        </p>
       </form>
     </div>
   </div>
-
-  <!--
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="panel panel-default panel-form">
-        <div class="panel-heading">
-          <h3 class="panel-title text-center"><strong>Sign In</strong></h3>
-        </div>
-        <div class="panel-body">
-
-          <form method="post" action="{% url 'account_login' %}" novalidate="">
-            {% csrf_token %}
-            {{ form|crispy }}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <button class="btn btn-block btn-primary" type="submit">Sign In</button>
-          </form>
-
-          <div class="bottom-text">
-            <p><a href="{% url 'account_reset_password' %}">Forgot password?</a></p>
-            <p>Don't have an account? <a href="{% url 'account_signup' %}">Create new account</a></p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  -->
 {% endblock %}
