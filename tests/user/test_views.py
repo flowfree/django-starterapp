@@ -16,7 +16,10 @@ class TokenAuthenticationTests(BaseTests):
         })
 
         self.assertEqual(response.status_code, 200)
-        self.assertJSONEqual(response.content, {'token': self.bob.auth_token.key})
+        self.assertJSONEqual(
+            response.content.decode('utf-8'), 
+            {'token': self.bob.auth_token.key},
+        )
 
         response = self.client.post('/api-token-auth/', {
             'username': 'alice',
@@ -24,7 +27,10 @@ class TokenAuthenticationTests(BaseTests):
         })
 
         self.assertEqual(response.status_code, 200)
-        self.assertJSONEqual(response.content, {'token': self.alice.auth_token.key})
+        self.assertJSONEqual(
+            response.content.decode('utf-8'), 
+            {'token': self.alice.auth_token.key},
+        )
 
     def test_invalid_login(self):
         response = self.client.post('/api-token-auth/', {
