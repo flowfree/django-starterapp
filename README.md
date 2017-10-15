@@ -5,47 +5,64 @@ Django Starter App
 
 A starter app for my Django projects.
 
-On Development Machine
-----------------------
+Run On Development Machine
+--------------------------
 
-Create new PostgreSQL database and user:
+1.  Create new virtualenv:
 
-    CREATE DATABASE dbname;
-    CREATE USER dbuser WITH PASSWORD 's3cr3t';
-    ALTER ROLE dbuser SET client_encoding TO 'utf8';
-    ALTER ROLE dbuser SET default_transaction_isolation TO 'read committed';
-    ALTER ROLE dbuser SET timezone TO 'UTC';
-    ALTER USER dbuser CREATEDB;
-    GRANT ALL PRIVILEGES ON DATABASE dbname TO dbuser;
+        python3 -m venv venv
+        . venv/bin/activate
 
-Create new `.env` file:
+2.  Install package dependencies:
 
-    cp .env.example .env
+        pip install -r requirements.txt
 
-Fill in the values for PostgreSQL and leave the others empty:
+3.  Create new PostgreSQL database and user:
 
-    POSTGRES_DBNAME=dbname
-    POSTGRES_USER=dbuser
-    POSTGRES_PASSWORD=s3cr3t
+        CREATE DATABASE dbname;
+        CREATE USER dbuser WITH PASSWORD 's3cr3t';
+        ALTER ROLE dbuser SET client_encoding TO 'utf8';
+        ALTER ROLE dbuser SET default_transaction_isolation TO 'read committed';
+        ALTER ROLE dbuser SET timezone TO 'UTC';
+        ALTER USER dbuser CREATEDB;
+        GRANT ALL PRIVILEGES ON DATABASE dbname TO dbuser;
 
-Create new virtualenv and install dependencies:
+4.  Create new `.env` file:
 
-    python3 -m venv venv
-    . venv/bin/activate
-    pip install -r requirements.txt
+        cp .env.example .env
 
-Run the development server:
+5.  Fill in the values for PostgreSQL and leave the others empty:
 
-    ./manage.py migrate
-    ./manage.py runserver 3000
+        POSTGRES_DBNAME=dbname
+        POSTGRES_USER=dbuser
+        POSTGRES_PASSWORD=s3cr3t
 
-On Production Server
---------------------
+6.  Run the development server:
 
-Create new `.env` file as above and fill in all of the values. Run docker-compose:
+        ./manage.py migrate
+        ./manage.py runserver 3000
 
-    docker-compose build
-    docker-compose up -d
+Deploy on Dedicated Server
+--------------------------
+
+Make sure that you have [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
+
+1.  Create new `.env` file:
+
+        cp .env.example .env
+
+2.  Fill in all of the values.
+
+3.  Build and run the containers:
+
+        docker-compose build && docker-compose up -d
+
+
+Deploy on Heroku
+----------------
+
+Make sure you have [Heroku CLI](https://cli.heroku.com/) installed on your computer.
+
 
 TODO
 ----
