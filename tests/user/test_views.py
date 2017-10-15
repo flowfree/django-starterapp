@@ -39,7 +39,7 @@ class TokenAuthenticationTests(BaseTests):
         })
 
         self.assertEqual(response.status_code, 400)
-        self.assertJSONEqual(response.content, {
+        self.assertJSONEqual(response.content.decode('utf-8'), {
             'non_field_errors': ['Unable to log in with provided credentials.']
         })
 
