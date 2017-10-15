@@ -7,12 +7,16 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+import shutil
 import os
 import environ
 
 
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('apps')
+
+if not os.path.isfile(str(ROOT_DIR('.env'))):
+    shutil.copyfile(str(ROOT_DIR('.env.example')), str('.env'))
 
 env = environ.Env()
 env.read_env(str(ROOT_DIR('.env')))
