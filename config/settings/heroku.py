@@ -20,10 +20,10 @@ DATABASES = {
 
 # EMAIL CONFIGURATION
 # ------------------------------------------------------------------------------
-EMAIL_BACKEND = "anymail.backends.sendgrid.SendGridBackend"
+EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
 ANYMAIL = {
-    "SENDGRID_USERNAME": env('SENDGRID_USERNAME'),
-    "SENDGRID_PASSWORD": env('SENDGRID_PASSWORD'),
+    'MAILGUN_API_KEY': os.getenv('MAILGUN_API_KEY'),
+    'MAILGUN_SENDER_DOMAIN': os.getenv('MAILGUN_SENDER_DOMAIN'),
 }
 
 # STATIC FILE CONFIGURATION
