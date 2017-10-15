@@ -30,7 +30,7 @@ Fill in the values for PostgreSQL and leave the others empty:
 
 Create new virtualenv and install dependencies:
 
-    pyvenv venv
+    python3 -m venv venv
     . venv/bin/activate
     pip install -r requirements.txt
 
