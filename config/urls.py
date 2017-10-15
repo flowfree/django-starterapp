@@ -18,11 +18,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rest_framework.authtoken import views
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='welcome.html')),
+    url(r'^$', RedirectView.as_view(url='/user/login/')),
     url(r'^user/', include('apps.user.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^api-token-auth/', views.obtain_auth_token),

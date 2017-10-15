@@ -5,48 +5,52 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <h2>Please Sign Up</h2>
-      <hr>
+    <div class="col-md-4 col-md-offset-4">
+      <h2 class="text-center">Please Sign Up</h2>
       
       {% if form.non_field_errors %}
         <div class="alert alert-danger">{{ form.non_field_errors.0 }}</div>
       {% endif %}
 
+      <hr>
       <form method="post" action="{% url 'account_signup' %}" novalidate="" class="form">
         {% csrf_token %}
-        <div class="form-group">
-          <label class="sr-only">Email:</label>
-          <input type="email" name="email" value="{{ form.email.value|default:'' }}" class="form-control {% if form.email.errors %}is-invalid{% endif %}" placeholder="Your email" required="" autofocus>
+        <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+          <label>Email</label>
+          <input type="email" name="email" value="{{ form.email.value|default:'' }}" class="form-control" autofocus>
           {% if form.email.errors %}
-            <div class="invalid-feedback">{{ form.email.errors.0 }}</div>
+            <div class="help-block">{{ form.email.errors.0 }}</div>
           {% endif %}
         </div>
-        <div class="form-group">
-          <label class="sr-only">Username:</label>
-          <input type="text" name="username" value="{{ form.username.value|default:'' }}" class="form-control {% if form.username.errors %}is-invalid{% endif %}" placeholder="Your username" required="" autofocus>
+        <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+          <label>Username</label>
+          <input type="text" name="username" value="{{ form.username.value|default:'' }}" class="form-control" autofocus>
           {% if form.username.errors %}
-            <div class="invalid-feedback">{{ form.username.errors.0 }}</div>
+            <div class="help-block">{{ form.username.errors.0 }}</div>
           {% endif %}
         </div>
-        <div class="form-group">
-          <label class="sr-only">Password</label>
-          <input type="password" name="password1" value="{{ form.password1.value|default:'' }}" class="form-control {% if form.password1.errors %}is-invalid{% endif %}" placeholder="Your password" required="" autofocus>
+        <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+          <label>Password</label>
+          <input type="password" name="password1" value="{{ form.password1.value|default:'' }}" class="form-control" autofocus>
           {% if form.password1.errors %}
-            <div class="invalid-feedback">{{ form.password1.errors.0 }}</div>
+            <div class="help-block">{{ form.password1.errors.0 }}</div>
+          {% endif %}
+        </div>
+        <div class="form-group {% if form.password2.errors %}has-error{% endif %}">
+          <label>Confirm Password</label>
+          <input type="password" name="password2" value="{{ form.password2.value|default:'' }}" class="form-control" autofocus>
+          {% if form.password2.errors %}
+            <div class="help-block">{{ form.password2.errors.0 }}</div>
           {% endif %}
         </div>
         <div class="form-group">
-          <label class="sr-only">Confirm Password</label>
-          <input type="password" name="password2" value="{{ form.password2.value|default:'' }}" class="form-control {% if form.password2.errors %}is-invalid{% endif %}" placeholder="Confirm your password" required="" autofocus>
-          {% if form.password2.errors %}
-            <div class="invalid-feedback">{{ form.password2.errors.0 }}</div>
-          {% endif %}
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign me up</button>
+          <p class="text-center"><br>Already have an account? Please <a href="{% url 'account_login' %}">signin</a>.</p>
         </div>
-        <p><button type="submit" class="btn btn-block btn-primary">Sign Up</button></p>
-        <p>Already have an account? Please please <a href="{{ login_url }}">sign in</a>.</p>
       </form>
+
+      <hr>
+          <p>By clicking "Sign me up", you agree to our Terms of Service, Privacy Policy, and Cookie Policy.</p>
  
     </div>
   </div>
