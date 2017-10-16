@@ -5,10 +5,12 @@ Django Starter App
 
 A starter app for my Django projects.
 
-Run On Development Machine
+Run on Development Machine
 --------------------------
 
-1.  Create new virtualenv:
+To run the app on your local machine, you need Python 3.5+ and PostgreSQL installed on your computer.
+
+1.  Create and activate virtualenv:
 
         python3 -m venv venv
         . venv/bin/activate
@@ -19,13 +21,17 @@ Run On Development Machine
 
 3.  Create new PostgreSQL database and user:
 
-        CREATE DATABASE dbname;
-        CREATE USER dbuser WITH PASSWORD 's3cr3t';
-        ALTER ROLE dbuser SET client_encoding TO 'utf8';
-        ALTER ROLE dbuser SET default_transaction_isolation TO 'read committed';
-        ALTER ROLE dbuser SET timezone TO 'UTC';
-        ALTER USER dbuser CREATEDB;
-        GRANT ALL PRIVILEGES ON DATABASE dbname TO dbuser;
+        $ psql postgres
+        psql (9.6.5)
+        Type "help" for help.
+
+        postgres=# CREATE DATABASE dbname;
+        postgres=# CREATE USER dbuser WITH PASSWORD 's3cr3t';
+        postgres=# ALTER ROLE dbuser SET client_encoding TO 'utf8';
+        postgres=# ALTER ROLE dbuser SET default_transaction_isolation TO 'read committed';
+        postgres=# ALTER ROLE dbuser SET timezone TO 'UTC';
+        postgres=# ALTER USER dbuser CREATEDB;
+        postgres=# GRANT ALL PRIVILEGES ON DATABASE dbname TO dbuser;
 
 4.  Create new `.env` file:
 
@@ -51,9 +57,9 @@ Make sure that you have [Docker](https://docs.docker.com/engine/installation/lin
 
         cp .env.example .env
 
-2.  Fill in all of the values.
+    Fill in all of the values.
 
-3.  Build and run the containers:
+2.  Build and run the containers:
 
         docker-compose build && docker-compose up -d
 
@@ -83,6 +89,7 @@ Make sure you have [Heroku CLI](https://cli.heroku.com/) installed on your compu
 5.  Run database migrations and optionally create a user:
 
         heroku run ./manage.py migrate
+        heroku run ./manage.py createsuperuser
 
 6.  Open the app:
 
