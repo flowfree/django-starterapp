@@ -28,7 +28,6 @@ DATABASES = {
 # EMAIL CONFIGURATION
 # ------------------------------------------------------------------------------
 EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
-DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 ANYMAIL = {
     'MAILGUN_API_KEY': env('MAILGUN_API_KEY'),
     'MAILGUN_SENDER_DOMAIN': env('MAILGUN_SENDER_DOMAIN'),

@@ -127,6 +127,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# EMAIL CONFIGURATION
+# ------------------------------------------------------------------------------
+DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL')
+
 # STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 # ------------------------------------------------------------------------------
