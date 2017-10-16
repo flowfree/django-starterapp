@@ -4,6 +4,43 @@ from django.contrib.auth import authenticate
 from ..base import BaseTests
 
 
+class SignupApiTests(BaseTests):
+    def setUp(self):
+        super().setUp()
+        self.total_users = User.objects.count()
+
+    def test_with_valid_data(self):
+        response = self.client.post('/api/users/', {
+            'email': 'johndoe@example.com',
+            'username': 'johndoe',
+            'password': 'secretpass',
+        })
+
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(User.objects.count(), self.total_users+1)
+        user = User.objects.last()
+        self.assertEqual(user.email, 'johndoe@example.com')
+        self.assertEqual(user.username, 'johndoe')
+        data = response.json()
+        self.assertEqual(data['token'], user.auth_token.key)
+        self.assertTrue('email' not in data)
+        self.assertTrue('password' not in data)
+
+    def test_unique_email_and_unique_username(self):
+        response = self.client.post('/api/users/', {
+            'email': self.bob.email,
+            'username': self.bob.username,
+            'password': 'secretpass',
+        })
+
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(User.objects.count(), self.total_users)
+        errors = response.json()
+        self.assertEqual(len(errors), 2)
+        self.assertEqual(errors['email'][0], 'This field must be unique.')
+        self.assertEqual(errors['username'][0], 'This field must be unique.')
+
+
 class TokenAuthenticationTests(BaseTests):
     def test_all_users_have_auth_token(self):
         self.assertIsNotNone(self.bob.auth_token.key)

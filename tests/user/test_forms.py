@@ -1,4 +1,5 @@
-import inspect
+import os
+from os.path import join, dirname, abspath
 
 from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -6,8 +7,20 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from apps.user.forms import UserProfileForm, ChangePasswordForm
 from ..base import BaseTests
 
+FIXTURES_DIR = join(dirname(dirname(abspath(__file__))), 'fixtures')
+ASSETS_DIR = join(dirname(dirname(abspath(__file__))), 'assets')
+
 
 class UserProfileFormTests(BaseTests):
+    def setUp(self):
+        super().setUp()
+        self.sample_image = open(os.path.join(ASSETS_DIR, 'sample_image.png'), 'rb')
+        self.sample_textfile = open(os.path.join(ASSETS_DIR, 'lorem.txt'), 'rb')
+
+    def tearDown(self):
+        self.sample_image.close()
+        self.sample_textfile.close()
+
     def test_form_should_require_user_parameter(self):
         try:
             form = UserProfileForm()
