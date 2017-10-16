@@ -81,6 +81,8 @@ Make sure you have [Heroku CLI](https://cli.heroku.com/) installed on your compu
 
         heroku config:set DJANGO_SETTINGS_MODULE=config.settings.heroku
         heroku config:set DJANGO_SECRET_KEY=<value>
+        heroku config:set MAILGUN_API_KEY=<value>
+        heroku config:set MAILGUN_SENDER_DOMAIN=<value>
 
 4.  Push code:
 

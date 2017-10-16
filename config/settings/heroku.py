@@ -26,11 +26,11 @@ DATABASES = {
 
 # EMAIL CONFIGURATION
 # ------------------------------------------------------------------------------
-# EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
-# ANYMAIL = {
-#     'MAILGUN_API_KEY': os.getenv('MAILGUN_API_KEY'),
-#     'MAILGUN_SENDER_DOMAIN': os.getenv('MAILGUN_SENDER_DOMAIN'),
-# }
+EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
+ANYMAIL = {
+    'MAILGUN_API_KEY': os.getenv('MAILGUN_API_KEY'),
+    'MAILGUN_SENDER_DOMAIN': os.getenv('MAILGUN_SENDER_DOMAIN'),
+}
 
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------
