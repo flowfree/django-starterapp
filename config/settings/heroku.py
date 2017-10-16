@@ -12,6 +12,12 @@ ALLOWED_HOSTS = ['*']
 # ------------------------------------------------------------------------------
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
+# MIDDLEWARE CONFIGURATION
+# ------------------------------------------------------------------------------
+MIDDLEWARE += [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
 DATABASES = {
