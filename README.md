@@ -63,6 +63,31 @@ Deploy on Heroku
 
 Make sure you have [Heroku CLI](https://cli.heroku.com/) installed on your computer.
 
+1.  Login to Heroku:
+
+        heroku login
+
+2.  Create new Heroku app:
+
+        heroku create
+
+3.  Set the environment variables:
+
+        heroku config:set DJANGO_SETTINGS_MODULE=config.settings.heroku
+        heroku config:set DJANGO_SECRET_KEY=<value>
+
+4.  Push code:
+
+        git push heroku master
+
+5.  Run database migrations and optionally create a user:
+
+        heroku run ./manage.py migrate
+
+6.  Open the app:
+
+        heroku open
+
 
 TODO
 ----
