@@ -67,7 +67,7 @@ Make sure that you have [Docker](https://docs.docker.com/engine/installation/lin
 Deploy on Heroku
 ----------------
 
-Make sure you have [Heroku CLI](https://cli.heroku.com/) installed on your computer.
+Make sure you have a Heroku account and [Heroku CLI](https://cli.heroku.com/) is installed on your computer.
 
 1.  Login to Heroku:
 
@@ -85,7 +85,7 @@ Make sure you have [Heroku CLI](https://cli.heroku.com/) installed on your compu
         heroku config:set MAILGUN_SENDER_DOMAIN=<value>
         heroku config:set DEFAULT_FROM_EMAIL=<value>
 
-4.  Push code:
+4.  Push code to server:
 
         git push heroku master
 
