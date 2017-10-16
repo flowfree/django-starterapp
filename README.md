@@ -37,11 +37,12 @@ To run the app on your local machine, you need Python 3.5+ and PostgreSQL instal
 
         cp .env.example .env
 
-5.  Fill in the values for PostgreSQL and leave the others empty:
+5.  Fill in the required values below and you can leave the others empty:
 
         POSTGRES_DBNAME=dbname
         POSTGRES_USER=dbuser
         POSTGRES_PASSWORD=s3cr3t
+        DJANGO_SECRET_KEY=<random string>
 
 6.  Run the development server:
 

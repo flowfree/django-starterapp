@@ -129,7 +129,7 @@ USE_TZ = True
 
 # EMAIL CONFIGURATION
 # ------------------------------------------------------------------------------
-DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL')
+DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL') or 'noreply@example.com'
 
 # STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
