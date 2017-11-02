@@ -10,9 +10,19 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     env_file: .env
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '2'
 
   redis:
     image: redis
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '2'
 
   django:
     build:
@@ -25,6 +35,11 @@ services:
       - staticfiles:/var/www/static
       - staticfiles:/var/www/media
     env_file: .env
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '2'
     command: /server.sh
 
   celery:
@@ -37,6 +52,11 @@ services:
     volumes:
       - staticfiles:/var/www/media
     env_file: .env
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '2'
     command: celery -A config worker --beat -l warning
 
   nginx:
@@ -48,3 +68,8 @@ services:
       - staticfiles:/var/www/media
     ports:
       - '80:80'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '2'
